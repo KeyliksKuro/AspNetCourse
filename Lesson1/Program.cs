@@ -1,6 +1,26 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+//Dependency injection(DI) или внедрение зависимостей представл€ет механизм,
+//который позвол€ет сделать взаимодействующие в приложении объекты слабосв€занными.
 
-app.MapGet("/", () => "Hello World!");
+//Example1
+//ѕример зависимости
 
-app.Run();
+//Example2
+//»збавление от зависимости классов
+
+//«а управление сервисами в приложении в классе WebApplicationBuilder определено свойство Services
+//—войства сервиса (ServiceDescriptor)
+//ServiceType: тип сервиса
+//ImplementationType: тип реализации сервиса
+//Lifetime: жизненный цикл сервиса
+
+//Example3
+//—оздание сервиса
+
+//Example4
+//—пособы получени€ сервиса (пример дл€ конструктора)
+
+//Example5
+//—пособы получени€ сервиса (пример с middleware)
+using Lesson1.Examples.Example3;
+
+new Example().Run();
