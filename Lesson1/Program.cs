@@ -271,7 +271,40 @@ void Example7()
 //Метод UseWhen
 void Example8()
 {
+    //public static IApplicationBuilder UseWhen (this IApplicationBuilder app, Func<HttpContext,bool> predicate,
+    //  Action<IApplicationBuilder> configuration);
+    //делегат Func<HttpContext,bool> - некоторое условие, которому должен соответствовать запрос
+    //делегат Action<IApplicationBuilder> представляет некоторые действия над объектом IApplicationBuilder
 
+    var builder = WebApplication.CreateBuilder();
+    var app = builder.Build();
+
+    app.UseWhen(
+        context => context.Request.Path == "/time", // если путь запроса "/time"
+        appBuilder =>
+        {
+            string time = null;
+            // логгируем данные - выводим на консоль приложения
+            appBuilder.Use(async (context, next) =>
+            {
+                time = DateTime.Now.ToShortTimeString();
+                Console.WriteLine($"Time: {time}");
+                await next();   // вызываем следующий middleware
+            });
+
+            // отправляем ответ
+            appBuilder.Run(async context =>
+            {
+                await context.Response.WriteAsync($"Time: {time}");
+            });
+        });
+
+    app.Run(async context =>
+    {
+        await context.Response.WriteAsync("Home page");
+    });
+
+    app.Run();
 }
 //Метод Map
 void Example9()
