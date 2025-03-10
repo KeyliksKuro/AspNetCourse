@@ -1,5 +1,10 @@
-//
 
-using Lesson1.Examples.Example1;
+//Example1
+//Подключение статических файлов
 
-new Example1().Run();
+//Example2
+//Results API
+
+using Lesson1.Examples.Example2;
+
+new Example().Run();
