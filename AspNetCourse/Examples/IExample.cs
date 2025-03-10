@@ -1,4 +1,4 @@
-﻿namespace Lesson1.Examples
+﻿namespace AspNetCourse.Examples
 {
     public interface IExample
     {
