@@ -1,0 +1,15 @@
+﻿@page
+@model AspNetCourse.Examples.Example3.Pages.FormModel
+
+<h2>@Model.Message</h2>
+<form method="post">
+    <p>
+        <label>Имя:</label><br />
+        <input type="text" name="name" />
+    </p>
+    <p>
+        <label>Возраст:</label><br />
+        <input type="number" name="age" />
+    </p>
+    <input type="submit" value="Отправить" />
+</form>

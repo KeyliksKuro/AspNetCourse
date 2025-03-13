@@ -1,0 +1,67 @@
+﻿@page
+@* Подключение модели страницы *@
+@model AspNetCourse.Examples.Example2.Pages.IndexModel
+@* Подключение пространства имен *@
+@using AspNetCourse.Examples.Example2
+
+@* Функции *@
+@functions
+{
+    public int Sum(int a, int b)
+    {
+        return a + b;
+    }
+}
+
+@{
+    // Определение переменных
+    string title = "Razor Pages";
+    string[] people = { "Tom", "Sam", "Bob" };
+    // Отрисовка текста внутри блока кода
+    <text>Title: @title</text>
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@title</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    @* Использование C# кода внутри страницы*@
+    <h2>Time: @DateTime.Now.ToShortTimeString()</h2>
+    <p>@(20 + 30)</p>
+    <p>Sum of 5 and 4: <b> @Sum(5, 4)</b></p>
+
+    @* Условные конструкции *@
+    @if (DateTime.Now.Hour < 12)
+    {
+        <h2>morning</h2>
+    }
+    else if (DateTime.Now.Hour > 17)
+    {
+        <h2>evening</h2>
+    }
+    else
+    {
+        <h2>hello</h2>
+    }
+
+    @* Циклы *@
+    <ul>
+        @for (var i = 0; i < people.Length; i++)
+        {
+            <li>@people[i]</li>
+        }
+    </ul>
+
+    @* Создание объекта из пространства имен*@
+    @{
+        Person tom = new Person("Tom", 37);
+        <text>@tom.Name</text>
+    }
+
+    @* Использование модели *@
+    <h3>Time: @Model.PrintTime()</h3>
+</body>
+</html>

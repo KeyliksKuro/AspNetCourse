@@ -1,12 +1,15 @@
-﻿namespace AspNetCourse.Examples.Example1
+﻿namespace AspNetCourse.Examples.Example4
 {
     public class Example : IExample
     {
         public void Run()
         {
             var builder = WebApplication.CreateBuilder();
+            builder.Services.AddRazorPages(options => options.RootDirectory = "/Examples/Example4/Pages");
             var app = builder.Build();
-            app.MapGet("/", () => "Hello World!");
+
+            app.MapRazorPages();
+
             app.Run();
         }
     }

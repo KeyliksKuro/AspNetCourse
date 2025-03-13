@@ -1,0 +1,7 @@
+﻿@* Параметр можно указать необязательным, а так же добавить ограничения (аналогично маршрутизации в minimalAPI) *@
+@page "{game=game}/{id:int?}"
+@model AspNetCourse.Examples.Example4.Pages.IndexModel
+
+<h2>Id = @Model.Id</h2>
+<h2>Game = @Model.Game</h2>
+<a href="/people">Список людей</a>

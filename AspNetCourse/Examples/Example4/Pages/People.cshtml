@@ -1,0 +1,16 @@
+﻿@page "{handler?}"
+
+@using AspNetCourse.Examples.Example4.Pages
+@model AspNetCourse.Examples.Example4.Pages.PeopleModel
+
+<h2>Список пользователей</h2>
+<table>
+    <tr><th>Name</th><th>Age</th></tr>
+    @foreach (Person person in Model.DisplayedPeople)
+    {
+        <tr>
+            <td>@person.Name</td>
+            <td>@person.Age</td>
+        </tr>
+    }
+</table>
