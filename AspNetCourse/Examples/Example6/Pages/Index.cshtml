@@ -1,0 +1,27 @@
+﻿@page "{handler?}"
+@model AspNetCourse.Examples.Example6.Pages.IndexModel
+
+@* ViewBag и ViewData можно определять на самой странице *@
+@* При этом свойство ViewBag не доступно в модели *@
+@{
+    ViewBag.Title = "Razor Pages";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <h2>@ViewData["Message"]</h2>
+    <ul>
+        @if (ViewData["People"] is List<string> people)
+        {
+            foreach (var person in people)
+            {
+                <li>@person</li>
+            }
+        }
+    </ul>
+</body>
+</html>

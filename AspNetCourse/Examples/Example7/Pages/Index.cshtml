@@ -1,0 +1,21 @@
+﻿@page "{handler?}"
+@model AspNetCourse.Examples.Example7.Pages.IndexModel
+
+<h2>Введите данные</h2>
+<form method="post">
+    <p>
+        <label>Имя:</label><br />
+        <input type="text" name="name" />
+    </p>
+    <p>
+        <label>Возраст:</label><br />
+        <input type="number" name="age" />
+    </p>
+    <input type="submit" value="Отправить" />
+</form>
+@if (Request.Method == "POST")
+{
+    <h3>Полученные данные</h3>
+    <p>Name: @Model.Name</p>
+    <p>Age: @Model.Age</p>
+}

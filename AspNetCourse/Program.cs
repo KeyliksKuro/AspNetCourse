@@ -16,6 +16,16 @@
 //В качестве параметра обработчика, с атрибутом [FromServices]
 //  public void OnGet([FromServices] ITimeService timeService)
 //На саму страницу: @inject ITimeService timeService
-using AspNetCourse.Examples.Example4;
+
+//Exmaple5
+//Возвращение результата
+
+//Exmaple6
+//ViewBag и ViewData
+
+//Exmaple7
+//Binding
+
+using AspNetCourse.Examples.Example7;
 
 new Example().Run();
