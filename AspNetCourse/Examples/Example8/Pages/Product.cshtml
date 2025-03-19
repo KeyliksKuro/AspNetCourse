@@ -1,0 +1,21 @@
+﻿@page
+@model AspNetCourse.Examples.Example8.Pages.ProductModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<h2>@Model.Message</h2>
+<form method="post" asp-antiforgery="true">
+    <p>
+        <label asp-for="Product.Name">Название</label><br />
+        <input type="text" asp-for="Product.Name" />
+    </p>
+    <p>
+        <label asp-for="Product.Price">Цена</label><br />
+        <input asp-for="Product.Price" />
+    </p>
+    <p>
+        <label asp-for="Product.CompanyId">Производитель</label><br />
+        <select asp-for="Product.CompanyId" asp-items="Model.Companies"></select>
+    </p>
+    <input type="submit" value="Отправить" />
+</form>

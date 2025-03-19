@@ -26,6 +26,9 @@
 //Exmaple7
 //Binding
 
-using AspNetCourse.Examples.Example7;
+//Exmaple8
+//tag-ץוכןונû
+
+using AspNetCourse.Examples.Example8;
 
 new Example().Run();

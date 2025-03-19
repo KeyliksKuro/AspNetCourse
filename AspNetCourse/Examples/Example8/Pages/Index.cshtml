@@ -1,0 +1,14 @@
+﻿@page "{handler?}"
+@model AspNetCourse.Examples.Example8.Pages.IndexModel
+@* Подключение tag-хелперов *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>Index</h2>
+<ul>
+    <li><a asp-page="About">About</a></li>
+    <li><a asp-page="About" asp-page-handler="company">About Company</a></li>
+    @* asp-host="localhost.com" задаёт новый домен*@
+    @* asp-protocol="https" определяет протокол*@
+    <li><a asp-page="About" asp-page-handler="person" asp-route-name="Ivan">About Person</a></li>
+    <li><a asp-page="Product">Product</a></li>
+</ul>
