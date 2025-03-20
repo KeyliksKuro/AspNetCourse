@@ -1,14 +1,14 @@
 
-//Exmaple1
+//Example1
 //Подключение страниц Razor Pages к проекту
 
-//Exmaple2
+//Example2
 //Синтаксис Razor Pages
 
-//Exmaple3
+//Example3
 //Обработка POST и GET запросов
 
-//Exmaple4
+//Example4
 //Маршрутизация и параметры маршрута
 
 //Передача зависимостей в страницу Razor осуществляется следующими способами:
@@ -17,18 +17,21 @@
 //  public void OnGet([FromServices] ITimeService timeService)
 //На саму страницу: @inject ITimeService timeService
 
-//Exmaple5
+//Example5
 //Возвращение результата
 
-//Exmaple6
+//Example6
 //ViewBag и ViewData
 
-//Exmaple7
+//Example7
 //Binding
 
-//Exmaple8
+//Example8
 //tag-хелперы
 
-using AspNetCourse.Examples.Example8;
+//Example9
+//Мастер-страницы layout / Partial
+
+using AspNetCourse.Examples.Example9;
 
 new Example().Run();
