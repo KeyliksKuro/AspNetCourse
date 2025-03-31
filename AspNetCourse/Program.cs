@@ -10,6 +10,16 @@
 
 //Example4
 //Представления
-using AspNetCourse.Examples.Example4;
+
+//Example5
+//Маршрутизация
+
+//Example6
+//Маршрутизация на основе атрибутов
+
+//Example7
+//Маршрутизация (области)
+
+using AspNetCourse.Examples.Example7;
 
 new Example().Run();
