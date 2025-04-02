@@ -20,6 +20,9 @@
 //Example7
 //Маршрутизация (области)
 
-using AspNetCourse.Examples.Example7;
+//Example7
+//Модели
+
+using AspNetCourse.Examples.Example8;
 
 new Example().Run();
