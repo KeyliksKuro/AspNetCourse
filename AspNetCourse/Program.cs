@@ -20,9 +20,15 @@
 //Example7
 //Маршрутизация (области)
 
-//Example7
+//Example8
 //Модели
 
-using AspNetCourse.Examples.Example8;
+//Example9
+//Привязка моделей
+
+//Example10
+//View Component
+
+using AspNetCourse.Examples.Example10;
 
 new Example().Run();

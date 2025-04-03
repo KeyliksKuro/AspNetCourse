@@ -1,0 +1,11 @@
+﻿@using AspNetCourse.Examples.Example10.ViewComponents
+@addTagHelper *, AspNetCourse
+
+<h1>Home page!</h1>
+
+@* Подключение view component *@
+<p>@await Component.InvokeAsync("Timer", new {longTime = true})</p>
+@* или так *@
+<vc:timer long-time=false/>
+
+<vc:user-list/>
