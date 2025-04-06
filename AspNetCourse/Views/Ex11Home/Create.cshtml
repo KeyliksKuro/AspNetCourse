@@ -1,0 +1,53 @@
+﻿@model AspNetCourse.Examples.Example11.Models.Person
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<form method="post">
+    <div>
+@*      ValidationSummaryTagHelper применяется для отображения сводки
+            ошибок валидации
+        None: ошибки валидации не отображаются
+        ModelOnly: отображаются только ошибка валидации уровня модели,
+            ошибки валидации для отдельных свойств не отображаются
+        All: отображаются все ошибки валидации *@
+        <div asp-validation-summary="All"></div>
+
+        <p>
+            <label asp-for="Name">Name</label><br />
+            <input type="text" asp-for="Name" />
+            <span asp-validation-for="Name" />
+        </p>
+        <p>
+            <label asp-for="Age">Age</label><br />
+            <input asp-for="Age" />
+            <span asp-validation-for="Age" />
+        </p>
+        <p>
+            <input type="submit" value="Send" />
+        </p>
+    </div>
+</form>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"></script>
+
+@* Стилизация тег-хелперов валидации *@
+<style>
+    /* ValidationTagHelper */
+    .field-validation-error {
+        color: red;
+    }
+
+    /* Input field */
+    input.input-validation-error {
+        border: 1px solid #b94a48;
+    }
+    input.valid {
+        border: 1px solid #16a085;
+    }
+
+    /* ValidationSummaryTagHelper */
+    .validation-summary-errors {
+        color: #b94a48;
+    }
+</style>

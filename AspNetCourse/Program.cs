@@ -29,6 +29,9 @@
 //Example10
 //View Component
 
-using AspNetCourse.Examples.Example10;
+//Example11
+//Валидация
+
+using AspNetCourse.Examples.Example11;
 
 new Example().Run();
