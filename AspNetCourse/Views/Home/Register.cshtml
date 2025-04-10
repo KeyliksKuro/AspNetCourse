@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model User;
+
+<h2>Регистрация</h2>
+<form asp-antiforgery="true" asp-controller="Home" asp-action="Create">
+    <div>
+        <input asp-for="Id" type="hidden" value="0" />
+    </div>
+    <div>
+        <label asp-for="Login">Login</label>
+        <br />
+        <input asp-for="Login" />
+    </div>
+    <div>
+        <label asp-for="Password">Password</label>
+        <br />
+        <input asp-for="Password" />
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
