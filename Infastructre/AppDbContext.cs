@@ -18,7 +18,8 @@ namespace Infastructre
                 {
                     Id = 1,
                     Login = "Ivan",
-                    Password = "123"
+                    Password = "123",
+                    Role = "Admin"
                 }
             };
         }

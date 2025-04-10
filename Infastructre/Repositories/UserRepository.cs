@@ -26,6 +26,7 @@ namespace Infastructre.Repositories
         public int Add(User user)
         {
             user.Id = _context.CurrentId;
+            user.Role = "User";
             _context.Users.Add(user);
             return user.Id;
         }

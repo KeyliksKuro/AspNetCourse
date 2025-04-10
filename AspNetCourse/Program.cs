@@ -5,6 +5,7 @@ using Infastructre;
 using Infastructre.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,7 +39,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             }
         };
     });
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+    options.AddPolicy("NotForOlegs", builder =>
+        builder.RequireAssertion(context =>
+            context.User.FindFirst(ClaimTypes.Name)?.Value != "Юыху")));
 
 var app = builder.Build();
 

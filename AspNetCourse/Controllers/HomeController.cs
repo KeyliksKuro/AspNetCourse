@@ -2,9 +2,7 @@
 using Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
+using System.Security.Claims;
 
 namespace AspNetCourse.Controllers
 {
@@ -22,9 +20,26 @@ namespace AspNetCourse.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return Content("SecretData");
+            // Получение информации из claims
+            //var name = HttpContext.User.Identity?.Name;
+            var name = HttpContext.User.FindFirst(ClaimTypes.Name)?.Value;
+            return Content($"Привет {name}");
         }
 
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public IActionResult Admin()
+        {
+            return Content("Панель администратора.");
+        }
+
+        [Authorize(Policy = "NotForOlegs")]
+        [HttpGet]
+        public IActionResult SecretInfo()
+        {
+            return Content("Информация не для Олегов");
+        }
 
         [HttpGet]
         public IActionResult Register()

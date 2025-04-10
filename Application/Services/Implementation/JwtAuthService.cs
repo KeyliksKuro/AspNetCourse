@@ -2,6 +2,7 @@
 using Domain.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 
 namespace Application.Services.Implementation
@@ -24,6 +25,13 @@ namespace Application.Services.Implementation
             if (userData.Password != user.Password)
                 throw new Exception("Пароль не верный");
 
+            var claims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.Name, user.Login),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Role, user.Role)
+            };
+
             // Алгоритм кодирования токена
             var signingCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes("securitykeysecuritykeysecuritykeysecuritykeysecuritykeysecuritykeysecuritykeysecuritykey")),
@@ -31,7 +39,8 @@ namespace Application.Services.Implementation
 
             var token = new JwtSecurityToken(
                 signingCredentials: signingCredentials,
-                expires: DateTime.Now.AddMinutes(1)
+                expires: DateTime.Now.AddMinutes(1),
+                claims: claims
                 );
 
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
